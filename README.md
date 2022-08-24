@@ -210,8 +210,51 @@ public class Dados_Contribuinte {
 
 
 
-
-
-
-
 ```
+	
+	
+# Cliente-Servidor
+>Description
+
+<p> Essa implantação consiste na construção de uma conexão cliente-servidor que obtem uma resposta e exibe o resultado via console
+	
+	
+```java
+	
+import java.io.*;
+import java.net.*;
+
+public class cliente_web {
+
+	public static void main (String [] args) {
+		try {
+
+			Socket s = new Socket ("time-A.timefreq.bldrdoc.gov",13);
+			BufferedReader entrada = new BufferedReader (new InputStreamReader (s.getInputStream()));
+			boolean adiciona = true;
+			while (adiciona){
+				String linha = entrada.readLine();
+				if (linha == null) adiciona = false;
+				else
+					System.out.println(linha);
+				}
+			}catch (IOException exc) {System.out.println ("erro =" + exc);}
+		}
+}	
+	
+	
+	
+```
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
