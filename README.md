@@ -7,6 +7,7 @@ Project in language JAVA
 <h2>Indice</h2></br>
 <a href="#Sobre">Sobre</a></br>
 <a href="#Implementacao">Implementacao</a></br>
+<a href="#Cliente-Servidor-Web">Cliente-Servidor Web</a></br>
 <a href="#Cliente-Servidor">Cliente-Servidor</a></br>
 
 # Sobre
@@ -213,7 +214,7 @@ public class Dados_Contribuinte {
 ```
 	
 	
-# Cliente-Servidor
+# Cliente-Servidor-Web
 >Description
 
 <p> Essa implantação consiste na construção de uma conexão cliente-servidor que obtem uma resposta e exibe o resultado via console
@@ -246,15 +247,93 @@ public class cliente_web {
 	
 ```
 	
+# Cliente-Servidor
+	
+>Description
+	
+<p> Criar um projeto em Java para disponibilizar um Serviço (Server) para acesso, utilizando a propria rede local, onde inicialmente a execução start 
+<p> run do código em sequencia, o comportamento é esperar uma requisição e devolver um numero 12 (conectado com sucesso)
+	
+	
+```java
+	
+import java.net.*;
+import java.io.*;
+
+
+public class ServidorTCPNumero {
+
+	public static void main(String[] args) {
+		
+	int porta = 12258;
+	
+	try {
+		
+		ServerSocket servidor = new ServerSocket (porta, 2);
+		Socket conexao = servidor.accept();
+		
+		DataOutputStream saida = new DataOutputStream (conexao.getOutputStream());
+		SocketAddress s = conexao.getRemoteSocketAddress();
+		System.out.println("Enviando numero ao cliente: "+s.toString());
+		saida.writeInt(12);
+		
+		conexao.close();
+		
+		
+	}catch(Exception exc) {
+		
+		System.out.println(exc.toString());
+		
+	}	
+		
+		
+	}
+
+}
 	
 	
 	
+
+```	
+	
+<p> Codigo simulação Cliente
+
+```java
+
+import java.net.*;
+import java.io.*;
+
+public class ClienteTCPNumero {
+	
+public static void main (String numero[]) {	
+	String enderecoServidor = "127.0.0.1";
+	int portaServidor = 12258;
+	
+	try {
+		
+		
+		Socket conexao = new Socket (enderecoServidor, portaServidor);
+		
+		DataInputStream entrada = new DataInputStream (conexao.getInputStream());
+		System.out.println("Numero recebido: "+entrada.readInt());
+		
+		
+		
+		conexao.close();
+		
+		
+	}catch (Exception exc)
+	{
+		
+		System.out.println(exc.toString());
+		
+		
+	}
 	
 	
+}
 	
-	
-	
-	
-	
-	
-	
+
+}
+		
+```	
