@@ -15,7 +15,7 @@ public class programa {
 		Scanner ler = new Scanner(System.in);
 		
 		
-		for(int i=0; i<=1;i++) {
+		for(int i=0; i<=9;i++) {
 			
 			Produto p = new Produto();
 			
@@ -37,7 +37,7 @@ public class programa {
 
 		}
 		
-		for(int i=0; i<=1; i++) {
+		for(int i=0; i<=9; i++) {
 			
 			//System.out.printf("\nPessoa %d criada com sucesso (%s)!", c[i].id, c[i].nome, c[i].idade, c[i].email);
 			
