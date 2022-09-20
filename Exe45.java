@@ -8,8 +8,6 @@
 //e) A porcentagem de valores que são positivos;
 //f) A porcentagem de valores negativos;
 
-
-
 import java.util.Scanner;
 
 public class Exe45 {
@@ -18,7 +16,7 @@ public class Exe45 {
 	
 		
 		int N, num, MaiorVal=0, MenorVal=1000, Soma=0, media=0, i=1;
-		float porcent=0;
+		float porcent=0,porcentNeg=0;
 		
 		Scanner ler = new Scanner(System.in);
 		
@@ -28,7 +26,7 @@ public class Exe45 {
 		N = ler.nextInt();
 		
 		while(N > 20 || N < 0) {
-			System.out.println("ERRO! Digite um numero menor que 50 e positivo");
+			System.out.println("ERRO! Digite um numero menor que 20 e positivo");
 			N = ler.nextInt();
 		}
 		
@@ -41,9 +39,13 @@ public class Exe45 {
 			
 			Soma+=num;//Soma dos valores
 		
-			porcent = num;
-			if(porcent > 0) {
-				v[i-1] = porcent/100;
+			
+			if(num > 0) {
+				porcent += num;
+			}
+			
+			if(num < 0) {
+				porcentNeg += num;
 			}
 			
 			if(MaiorVal < num) {
@@ -63,19 +65,11 @@ public class Exe45 {
 		System.out.printf("\nMenor valor: %d",MenorVal);
 		System.out.printf("\nSoma dos Valores: %d", Soma);
 		System.out.printf("\nMedia: %d", media);
-		
-		i=1;
-		while(i<=N) {
-			
-			System.out.printf("\n\nPorcentagem: %.2f", v[i-1]);
-			
-			i++;
-		}
+		System.out.printf("\nPorcentagem: %.2f", porcent/100);
+		System.out.printf("\nPercentual negativo: %.2f", porcentNeg/100);
 		
 		
 		
-		
-
 	}
 
 }
