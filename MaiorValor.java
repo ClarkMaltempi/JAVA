@@ -1,5 +1,9 @@
 package MaiorVal;
 
+//8. Entrar via teclado, com dois valores distintos. Exibir o maior deles.
+//9. Entrar via teclado, com dois valores distintos. Exibir o menor deles.
+
+
 import java.util.*;
 
 
