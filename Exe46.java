@@ -17,7 +17,7 @@ public class Exe46 {
 
 	public static void main(String[] args) {
 		int N, num, MaiorVal=0, MenorVal=1000, Soma=0, media=0, i=1;
-		float porcent=0;
+		float porcent=0, porcentNeg=0;
 		char opc = 'S';
 		
 		Scanner ler = new Scanner(System.in);
@@ -45,9 +45,13 @@ public class Exe46 {
 				
 				Soma+=num;//Soma dos valores
 			
-				porcent = num;
-				if(porcent > 0) {
-					v[i-1] = porcent/100;
+
+				if(num > 0) {
+					porcent += num;
+				}
+				
+				if(num < 0) {
+					porcentNeg += num;
 				}
 				
 				if(MaiorVal < num) {
@@ -67,14 +71,8 @@ public class Exe46 {
 			System.out.printf("\nMenor valor: %d",MenorVal);
 			System.out.printf("\nSoma dos Valores: %d", Soma);
 			System.out.printf("\nMedia: %d", media);
-			
-			i=1;
-			while(i<=N) {
-				
-				System.out.printf("\n\nPorcentagem: %.2f", v[i-1]);
-				
-				i++;
-			}
+			System.out.printf("\nPorcentagem: %.2f", porcent/100);
+			System.out.printf("\nPercentual negativo: %.2f", porcentNeg/100);
 			
 			System.out.println("\n\nDeseja continuar digite: 'S' ou 'N' para Sair ");
 			opc = ler.next().charAt(0);
