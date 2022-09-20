@@ -2,7 +2,7 @@ import java.util.*;
 
 //10. Entrar com dois valores quaisquer. Exibir o maior deles, se existir, caso contrário, enviar mensagem avisando que os números são idênticos.
 
-public class testaValores {
+public class Ex10testaValores {
 
 	public static void main(String[] args) {
 	
