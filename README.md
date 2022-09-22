@@ -354,6 +354,6 @@ public static void main (String numero[]) {
 
 ```
 
-<p align="center">
-  <img src="/JAVA/image/imgEx_ClasseClienteXContaBancaria.png" width="350" title="hover text">
-</p>
+![Logo do Markdown](JAVA/imgage/imgEx_ClasseClienteXContaBancaria.png)
+  
+
