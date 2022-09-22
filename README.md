@@ -9,6 +9,7 @@ Project in language JAVA
 <a href="#Implementacao">Implementacao</a></br>
 <a href="#Cliente-Servidor-Web">Cliente-Servidor Web</a></br>
 <a href="#Cliente-Servidor">Cliente-Servidor</a></br>
+<a href="#53_Exe_Java">53 Exercicios em Java</a></br>
 
 # Sobre
 
@@ -337,3 +338,18 @@ public static void main (String numero[]) {
 }
 		
 ```	
+
+
+# 53_Exe_Java
+
+
+
+
+´´´java
+
+
+
+
+
+
+´´´
