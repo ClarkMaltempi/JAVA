@@ -668,8 +668,6 @@ Exe49Produto
 
  
 
-*correção: atualizarEmail(String novoEmail);
-
 //IMPLEMENTAÇÃO:
 Exe53Banco
 
