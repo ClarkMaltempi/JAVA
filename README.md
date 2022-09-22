@@ -354,6 +354,6 @@ public static void main (String numero[]) {
 
 ```
 
-![Logo do Markdown](JAVA/imgage/imgEx_ClasseClienteXContaBancaria.png)
+![Logo do Markdown](https://github.com/ClarkMaltempi/JAVA/image/imgEx_ClasseClienteXContaBancaria.png)
   
 
