@@ -674,7 +674,6 @@ Exe53Banco
 ```
 
 
-![Logo do R](https://github.com/ClarkMaltempi/JAVA/tree/main/Image/imgEx_ClasseClienteXContaBancaria.png)
 
   
 
