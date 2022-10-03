@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>escolhe cor fruta</title>
+</head>
+
+
+<style>
+
+#box{
+
+background-color: #3333;
+width:20%;
+padding:3%;
+border-radius:20%;
+display:flex;
+justify-content: center;
+flex-direction:column;
+align-content:center;
+
+
+}
+
+#par{
+
+	background-color: white;
+	border-radius:20%;
+	padding:5%;
+	width:20%;
+}
+
+#botton{
+
+	width:20%;
+	border-radius:10%;
+	background-color: #333;
+	border:none;
+	padding: 4%;
+	cursor:pointer;
+	color:white;
+}
+
+#Seletor{
+	width:30%;
+}
+
+
+</style>
+
+<body>
+<h1 align="center">cor da fruta</h1>
+<div id="box">
+<form method="post" action="SelectFruit.do" id="formulario">
+<p id="par">Escolher Cor da Fruta</p>
+
+<select name="color" size ="4" id="Seletor">
+	<option value="fruta vermelha">vermelha</option>
+	<option value="fruta amarela">amarela</option>
+	<option value="fruta verde">verde</option>
+	<option value="fruta Laranja">laranja</option>
+
+</select>
+<br><br>
+ 	<input type="submit" id="botton">
+
+
+</form>
+</div>
+
+</body>
+</html>
