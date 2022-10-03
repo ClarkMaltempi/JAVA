@@ -10,6 +10,7 @@ Project in language JAVA
 <a href="#Cliente-Servidor-Web">Cliente-Servidor Web</a></br>
 <a href="#Cliente-Servidor">Cliente-Servidor</a></br>
 <a href="#53_Exe_Java">53 Exercicios em Java</a></br>
+<a href="#Arquitetura_MVC">Arquitetura MVC</a></br>
 
 # Sobre
 
@@ -673,7 +674,216 @@ Exe53Banco
 
 ```
 
+# Arquitetura_MVC
+
+>Index Html
+
+<p>Arquivo usuario.html
+
+```html
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>escolhe cor fruta</title>
+</head>
 
 
-  
+<style>
+
+#box{
+
+background-color: #3333;
+width:20%;
+padding:3%;
+border-radius:20%;
+display:flex;
+justify-content: center;
+flex-direction:column;
+align-content:center;
+
+
+}
+
+#par{
+
+	background-color: white;
+	border-radius:20%;
+	padding:5%;
+	width:20%;
+}
+
+#botton{
+
+	width:20%;
+	border-radius:10%;
+	background-color: #333;
+	border:none;
+	padding: 4%;
+	cursor:pointer;
+	color:white;
+}
+
+#Seletor{
+	width:30%;
+}
+
+
+</style>
+
+<body>
+<h1 align="center">cor da fruta</h1>
+<div id="box">
+<form method="post" action="SelectFruit.do" id="formulario">
+<p id="par">Escolher Cor da Fruta</p>
+
+<select name="color" size ="4" id="Seletor">
+	<option value="fruta vermelha">vermelha</option>
+	<option value="fruta amarela">amarela</option>
+	<option value="fruta verde">verde</option>
+	<option value="fruta Laranja">laranja</option>
+
+</select>
+<br><br>
+ 	<input type="submit" id="botton">
+
+
+</form>
+</div>
+
+</body>
+</html>
+
+```
+
+<p>Arquivo Resultado.jsp
+
+```jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Arquitetura MVC</title>
+</head>
+<body>
+<h1 align="center">Resultados das frutas escolhidas - JSP</h1>
+<p>
+
+<%
+
+	List estilos = (List)request.getAttribute("estilos");
+	Iterator i =estilos.iterator();
+	while(i.hasNext())
+	{out.print("<br> fruta escolhida no JSP = "+ i.next());}
+
+%>
+
+
+</body>
+</html>
+
+```
+
+>Arquivos Servers .java
+
+<p>Modelo_retorna_frutas
+
+ ```java
+ 
+ package banca_frutas;
+
+import java.util.*;
+
+public class Modelo_retorna_frutas {
+	
+	public List getFrutas(String cor) {
+		List frutas = new ArrayList();
+		
+		if(cor.equals("fruta vermelha"))
+			frutas.add("morango");
+		if(cor.equals("fruta amarela"))
+			frutas.add("banana");
+		if(cor.equals("fruta verde"))
+			frutas.add("goiaba");
+		if(cor.equals("fruta Laranja"))
+			frutas.add("laranja");
+		
+	return (frutas);
+		
+	}
+
+}
+
+ ```
+<br> 
+<p>Banca_frutas
+
+```java
+
+package banca_frutas;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.util.*;
+import java.io.*;
+
+public class Banca_frutas extends HttpServlet {
+
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws IOException, ServletException{
+		
+		String c = request.getParameter("color");
+		Modelo_retorna_frutas f = new Modelo_retorna_frutas();
+		List resultado = f.getFrutas(c);
+		
+		
+		request.setAttribute("estilos", resultado);
+		RequestDispatcher view = request.getRequestDispatcher("Resultado.jsp");
+		view.forward(request, response);
+			
+	}
+		
+}
+
+```
+>Arquivo de configuração XML
+
+```xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <display-name></display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>escolher_frutas</servlet-name>
+  	<servlet-class>banca_frutas.Banca_frutas</servlet-class>
+  </servlet>	
+  <servlet-mapping>
+	<servlet-name>escolher_frutas</servlet-name>
+	<url-pattern>/SelectFruit.do</url-pattern>
+	
+  </servlet-mapping>
+</web-app>
+
+
+
+
+
+```
 
