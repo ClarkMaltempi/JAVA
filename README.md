@@ -678,7 +678,10 @@ Exe53Banco
 
 >Index Html
 
-<p>Arquivo usuario.html
+>Arquivo usuario.html
+
+<p>Para uma melhor compreenção da implementação consulte o arquivo MVC.pdf no repositório de arquivos JAVA
+
 
 ```html
 
