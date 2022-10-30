@@ -147,7 +147,6 @@ public class main {
 		
 		case 4:
 			
-			
 			System.out.println("\n[ Saque ]\n");
 			
 			
@@ -296,12 +295,12 @@ public class main {
 		 System.out.printf("\n\n1 - Incluir cliente \n" +
                  //"2 - Atualizar cliente \n" +
                 // "3 - Excluir cliente \n" +
-                 "4 - Exibir cliente \n" +
-                 "5 - Deposito \n"+
-                 "6 - Saque \n"+
-                 "7 - Trasnferencia \n"+
-                 "8 - Consultar Saldo \n"+
-                 "9 - Extrato\n"+
+                 "2 - Exibir cliente \n" +
+                 "3 - Deposito \n"+
+                 "4 - Saque \n"+
+                 "5 - Trasnferencia \n"+
+                 "6 - Consultar Saldo \n"+
+                 "7 - Extrato\n"+
                  "10 - Sair\n\n");
 		 System.out.printf("Digite a opcao desejada: ");
 		 opcao = ler.nextInt();
