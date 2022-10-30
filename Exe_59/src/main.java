@@ -238,6 +238,14 @@ public class main {
 			System.out.println("Digite o ID do Cliente");
 			id = ler.nextInt();
 			
+			for(Cliente a: ListaClientes) {
+				
+				if(a.getId() == id) {
+					System.out.printf("\n%s\n", a.getNome());
+					System.out.printf("%f\n", a.getConta().getSaldo());
+				}
+			}	
+			
 			
 		break;
 		
