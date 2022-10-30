@@ -235,16 +235,29 @@ public class main {
 		case 8:
 			System.out.println("[ Consulta de saldo ]");
 			
+			Cliente cli = new Cliente();
+			
 			System.out.println("Digite o ID do Cliente");
 			id = ler.nextInt();
 			
-			for(Cliente a: ListaClientes) {
-				
-				if(a.getId() == id) {
-					System.out.printf("\n%s\n", a.getNome());
-					System.out.printf("%f\n", a.getConta().getSaldo());
-				}
-			}	
+			 indexCliente = -1;
+			 
+		     for(Cliente c_ : ListaClientes) {
+			 if (c_.getId() == id) {
+			     indexCliente = ListaClientes.indexOf(c_);
+			     break;
+			 }
+		     }
+
+		     if (indexCliente != -1) {
+			 cli = ListaClientes.get(indexCliente);
+
+			 System.out.print("Saldo: R$ " + cli.getConta().ConsultarSaldo());
+		     }
+		     else {
+			 System.out.printf("Cliente n�o encontrado!");
+		     }
+		     System.in.read();
 			
 			
 		break;
