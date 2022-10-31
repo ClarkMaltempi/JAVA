@@ -332,7 +332,7 @@ public class main {
 		int opcao=0;
 		Scanner ler = new Scanner(System.in);
 		
-		 System.out.printf("===> Sistema de Cadastro de Alunos <===\n\n");
+		 System.out.printf("===> Banco Macgyver <===\n\n");
          System.out.printf("Escolha uma opcao:\n");
 
 		 System.out.printf("\n\n1 - Incluir cliente \n" +
