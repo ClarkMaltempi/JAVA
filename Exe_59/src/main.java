@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.*;
@@ -14,7 +13,7 @@ public class main {
 		
 		
 		String nome, email, agencia, numero;
-		int id=0,idade=0, opcao=0, idTransf;
+		int id=0,idade=0, opcao=0, idTransf, indexCliente=0;
 		double saldo, valDeposito, valSaque, valTrasnf;
 		//char possuiConta;
 		
