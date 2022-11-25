@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-public class Pedido {
+public class Pedido extends Cliente {
 	
 	private int id;
 	private Cliente cliente;
