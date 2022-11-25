@@ -1,11 +1,13 @@
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.*;
+import java.lang. *;
 
 public class Principal {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		Scanner ler = new Scanner(System.in);
 		
@@ -15,14 +17,31 @@ public class Principal {
 		ArrayList<ItemPedido> listaItems = new ArrayList<>(); 
 		
 		
-		int opcao, id, indexCliente, indexProduto, idCliente, idPedido, idItem;
+		int opcao, id=0, indexCliente, indexProduto, idCliente, idPedido, idItem, i=0;
 		String nome, email;
 		Cliente cl;
 		Produtos p;
 		double preco, estoque, quantidade;
 		
+		Tela_Inicial();
+		
+		//Inicializza Produtos Padrões	
+		Produtos p1 = new Produtos(1, "Hamburger de Carne" , 28, 10);
+		listaProdutos.add(p1);
+		Produtos p2 = new Produtos(2, "Batata Grande" , 20, 10);
+		listaProdutos.add(p2);
+		Produtos p3 = new Produtos(3, "Refrigerante" , 10, 10);
+		listaProdutos.add(p3);
+		Produtos p4 = new Produtos(4, "Hamburger de Frango" , 20, 10);
+		listaProdutos.add(p4);
+		Produtos p5 = new Produtos(5, "Sorvete" , 4, 10);
+		listaProdutos.add(p5);
+		Produtos p6 = new Produtos(6, "Milkshake" , 16, 10);
+		listaProdutos.add(p6);
+		
+		
 		do{
-				
+			
 			opcao = Imprime();
 			
 			switch(opcao) {
@@ -129,7 +148,7 @@ public class Principal {
 			
 	
 			case 5:
-				//Cadastrar Humburgers
+				//Cadastrar Produtos
 				Produtos pd = new Produtos();
 				
 				id = listaProdutos.size() + 1;
@@ -231,14 +250,14 @@ public class Principal {
 			
 			case 8:
 				
-				if(!listaClientes.isEmpty()) {
-					//ListarProdutos(listaProdutos);
+				if(!listaProdutos.isEmpty()) {
+					ListarProdutos(listaProdutos);
 				}else {
-					System.out.println("\n\n****Nenhum Cliente Cadastrado!!!****\n\n");
+					System.out.println("\n\n****Nenhum Produto Cadastrado!!!****\n\n");
 				}
 				
 			break;
-			
+			//Fazer pedido
 			case 9:
 				
 				ExibeLista(listaClientes);
@@ -319,16 +338,20 @@ public class Principal {
 				
 				
 			break;
-			
+			//Listar Pedido
 			case 10:
 			
-				//if(!listaItems.isEmpty()) {
-				//	ListarPedidos(listaItems);
-				//}else {
+				if(!listaItems.isEmpty()) {
+					ListarPedidos(listaItems);
+				}else {
 					
 					System.out.println("\nNenhum Item Pedido!\n");
-				//}
+				}
 				
+			break;
+			
+			case 11:
+				System.out.println("\nIntegrantes\n");
 			break;
 			
 			default:
@@ -342,36 +365,126 @@ public class Principal {
 		
 		}
 			
-		}while(opcao != 11);
+		}while(opcao != 20);
 		
 	 
 
 	}
+	
 	
 	public static int Imprime() {
 		
 		int opcao=0;
 		Scanner ler = new Scanner(System.in);
 		
-		 System.out.printf("\n\n===> Sistema de Cadastro de Produtos <===\n\n");
-         System.out.printf("Escolha uma opcao:\n");
+		
+		System.out.printf("\n\n===================================================================================================================================\n\n");
+        System.out.printf("Escolha uma opcao:\n");
 
 		 System.out.printf("\n\n1 - Incluir cliente \n" +
-                 "2 - Atualizar cliente \n" +
-                 "3 - Excluir cliente \n" +
-                 "4 - Exibir cliente \n" +
-                 "5 - Cadastrar Produtos \n"+
-                 "6 - Atualizar Produtos \n"+
-                 "7 - Excluir Produtos \n"+
-                 "8 - Sobremesas \n"+
-                 "9 - Listar Produtos \n"+
-                 "10 - Criar um pedido\n"+
-                 "11 - Listar Pedidos realizados\n"+
-                 "20 - Sair\n\n");
+                "2 - Atualizar cliente \n" +
+                "3 - Excluir cliente \n" +
+                "4 - Exibir cliente \n" +
+                "5 - Cadastrar Produtos \n"+
+                "6 - Atualizar Produtos \n"+
+                "7 - Excluir Produtos \n"+
+                "8 - Listar Produtos \n"+
+                "9 - Fazer pedido\n"+
+                "10 - Listar Pedidos realizados\n"+
+                "11 - Sobre\n"+
+                "20 - Sair\n\n");
 		 System.out.printf("Digite a opcao desejada: ");
 		 opcao = ler.nextInt();
 		 
 		 return opcao;
+	}
+	
+	public static void Tela_Inicial() {
+		
+		
+		
+		 System.out.printf("\n\n===========================================================================================================\n\n");
+		 System.out.printf("\n                                                 HUMBURGUERIA                                                \n\n");
+		 System.out.printf("\n\n===========================================================================================================\n\n");
+		 
+         
+System.out.println("    \t\t\t\t\t-+=-\n"+ 
+        									"\t\t\t.--==+:     =+:  :=+.  \n"+
+											"\t\t\t.--==+:     =+:  :=+. \n"+                                                                  
+										   "\t\t\t+..   +-   .# :  .:=- :=++-          :-.\n"+
+								 "\t\t:==+=.   +: :=:-.**==.# .-+: -**-.  :+=      -+-:=+=.\n"+                                             
+								"\t\t.#:   .=+.=-  :- =+-. .=#:  +  :%=.-. -.#==+- *-    .:*\n" +                                             
+								"\t\t-+.----.#-*  .=  #.--.-::*  +  .@=  +-=*:   :+%::---- #\n"+                                              
+								"\t\t=-  +   %#.  +  .#  :=  =-  +  .@:  + +::-:--.%-  +   # \n"+                                              
+								"\t\t+:  +   %:  =.  +=  =.  #.  +  :@.  + *.  +  :@=  +=+=%. \n"+                                             
+						"\t+====+  *:  +  .*  :-  -%..:*- .@-: +  :%  .= #   =  -%=-+-   :=+  .:-=. \n"+                                     
+					 "\t.*:  .:-+ *.  +  :+ .*=-.%@+-:.-+**:-++  =+ :+- #  .=  =#==-:---- #:*-:..==. \n"+                                   
+			    "\t*-:--+  -+#.  +  :%+-: :+%# =:.:.==   :# *+=:.=+#  .=  =#==-  +   #*::- .:.# \n"+                                   
+					"\t.*.  =:  =%.  +  :% -:.::%-  +:. *=.-- #.#.-. :.*- .-  +%-++: +   %*  :+: -= \n"+                                   
+					"\t .*.  =.  +-  +  :*  -=.+#  .=  :+ +.  #-=  +-. #. :-  *+-:.-+*   %:  =.  #. \n"+                                   
+					    "\t .*.  +.  *: +  =-  =..%:  =.  #. +   #*.  +  .#  -- .* =:.:.+- :*  .=  -+ \n"+                                    
+					     "\t  :*   +   *.+  #   + +*  .*. -=  +   %#  .=  =#==-=+*:  +:. #. *.  +   #. \n"+                                    
+						  "\t  -+  .=  .*+ :+  :-:%..==:++%:  +   @-  =.  #.-. ..=+ .=  -%.-+  :-  == \n"+                                     
+							"\t   ==  :-  -% *:  + #+==.   .+=  +  .%   +  .*  :=: == +   #+.#   +  .# \n"+                                      
+							  "\t *:  =.  *=*  .=-%.#:=-.-.-+ .+==+#: --  =*  ::  *.:-  ==:*:  =.  *: \n"+                                      
+							"\t.%++++*+++@*==+-#= #  .+  -= #:.   -**:=+--+.=   # :  .# -+  :=  -+ \n"+                                       
+							"\t%          ..:%%. #   =  ==.#.----.+@=.   .*+  :*    +-.*   +  .* \n"+                                        
+							"\t%  ++==--::.  +*  #  .=  =-:+  -:  #* =::-.==  =+-:::#.*.  =.  *: \n"+                                        
+							"\t%.   ..::--=.  #- #  .-  =-=-  =.  %:  +:  #.  *%---===++++*++*= \n"+                                         
+							"\t#.             .*=#      +:*:  +  .#  .=  -+  .%:      . .-  .%. \n"+                                         
+							"\t#:               +#.     +:#   +  =-  =.  #. =*. .++++++*+=-:=+ \n"+                                          
+							"\t*:                .*+.   *:#   .  #   -  :*-*=       .:  -:  %.\n"+                                          
+							"\t*-             *:   .+*=.*-*     -=     -**-           :.  :=* \n"+                                           
+							"\t+-             .++.    :=**#=-:::#--=+++-.  ..       :.  -  #: \n"+                                           
+							"\t+=               .++:       .:----::.     .+*.     :.  -  .=* \n"+                                            
+							"\t=+                 .=*+-.              .=*+.         :  .: #: \n"+                                            
+							"\t-+                     -=+++==----==+++=:       ..:=::--::-# \n"+                                             
+							"\t-*                          ..::::.. .:-=+++++=+===-------==+++++++-.. \n"+                                   
+							"\t:#                              .-+*++=:.                         ..-=+==-. \n"+                              
+							"\t:#                          .=**=:.                                     .:=**=. \n"+                          
+							"\t.%                       .+*+:                                               -+*=. \n"+                       
+							"\t.%                     -*+:                                                     :**:\n"+                     
+							"\t%                   =#=                                                          .+*:\n"+                   
+							"\t%.                :#=                                                              .+*.\n"+                 
+							"\t%.               +*.                                                                 :#-\n"+                
+							"\t#:             .#-                                                                     *+\n"+               
+							"\t#:            .#:                                                                       ++\n"+              
+							"\t*-            *=                                                                         %:\n"+             
+							"\t*-            *=                                                                         #-\n"+             
+							"\t+=            .*+.                                                                     :*+*\n"+             
+							"\t=+            ..*@*+-:                                                            .:=+*=.+#:\n"+            
+							"\t=+  ..  :   ..+*-+:.:=++++++=---:::....                      ......:::::--==++++++*%*====..*+\n"+           
+							"\t-*..  :   : +*:  .-========+##=--===+++++==+++++++++++++++++++=======*%%#*=-::-=+#=  .:-==++#+\n"+          
+							"\t:*  :  .: .#+++++++++=--++=-..#   :*=*-                    :-==-.    *....:-=+*%%*+++=-::.   *.\n"+         
+							"\t:#:  .:  .-%=--::.  ..:-=+**%%%-  #==-:-=-*===   #+**+=+*##+-:*-=+.  *++*%@#*=-:..:-=++++##*++\n"+          
+							"\t.# .:  :.  :.:-#==++++++=--:..:+==%+-.    .==#:  #----::..:===   :+  :%+-:.:=+++++-::.   #====+=:\n"+       
+							"\t+++==:  : .-+*#        .:*%*++++=..-+*+=.   #.  -*======-:    :+#+   *=+++=:-*.        :+  -+::+*- \n"+     
+							"\t\t.:=++*+#-  *.        *=     .-++*=:.:+*++=   =-        :+*+-:#    ==      .=       .#+.  .#: .*+ \n"+    
+							"\t\t-#.  .+*  =     -           .=*#+:.-+++*=     .=**=.:=*#=    +:       .   .: -+.:#=  --  .% \n"+    
+							"\t\t*= .+*-:+-+                   ==.=**=:.-+*+++*+:.=**=%:.*:  :*    -      .*=+-    +* .  .#- \n"+    
+							"\t\t-%=%+-:..-#+:.      +         :     :=*+-.  .-+*+:   *=  :==-    .+    :+%%*+++++++**  =#: \n"+    
+							"\t\t\t:#**::--=+++*#%%#*+==**:..               :=+++-.              ..:=%+*###*+=-:.  ..::-% .@. \n"+     
+							"\t\t%:-*++++==-::.  .:-=**##*+====================================+*#**=:..:-=++++++==---:  *= \n"+     
+							"\t\t%:      .::-=++++++=-:..:=+*+-.                          .-+*+=:.:=++++=:.     .=++:    :# \n"+     
+							"\t\t=*.=+++-    .      .:-++*+-:.:=**=.                  .=**=:.:=+*+-:     .   .::.  .-:  :#= \n"+     
+							"\t\t\t-#=.   .=**+**    =      :=+++:.:=*+-.          .-+*=:.-+*+=:        .+: .*+--+#+=-=**=.    \n"+   
+							"\t\t\t:=+++*#    =*   :*-...:-.  .-+*+:.:+*+:.   :+*+:.-+*+-.    .:=++=+*+. .%:    %:.:.      \n"+     
+							"\t\t\t*.    #-    -===:        .-+*=:.-++++-.:+*+-.             .    .#-    -#       \n"+        
+							"\t\t\t-*.   .#=.        -*++++++++-:=*+=--=**=:=:  .=*=+=++-:      :+*:    .%:    \n"+           
+							"\t\t\t-#:    -**=---=**=.       .=#:  :--: .=+: :*+:      :-++++++=:     -#:  \n"+              
+							"\t\t\t.+*=.    .:::.             .**:      .:=*=.                    :+*=.   \n"+             
+							"\t\t\t  :+*+=:                    .=+++++++-.                  .-=**=.       \n"+            
+						"\t\t\t\t   :=++++=-:.                                 .:-=+++++-.       \n "+                
+							"\t\t\t\t\t.:-=++++++++++============++++++++++++=--:.         \n"+                     
+							"\t\t\t\t\t\t\t.....::::.....  \n"  );                                          
+							         
+         
+         
+ 
+
+        System.out.println("Fatec todos os direitos reservados: 28/11/2022 ");
+		 
+		 
 
 	}
 	
@@ -401,6 +514,7 @@ public static void ListarProdutos(ArrayList<Produtos> listaProdutos) {
 		}
 		
 	}
+	
 	
 		
 	
