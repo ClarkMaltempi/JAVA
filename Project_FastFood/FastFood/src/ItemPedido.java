@@ -1,37 +1,20 @@
 
-public class ItemPedido {
+public class ItemPedido extends Produtos {
 	
 	private int id;
-	private String nome;
 	private Produtos produto;
-	public Produtos getProduto() {
-		return produto;
-	}
-
-	public void setProduto(Produtos produto) {
-		this.produto = produto;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	private Produtos Tipo;
 	private double quantidade;
 	
 	
 	ItemPedido(){}
 	
-	ItemPedido(int id, Produtos Tipo, double quantidade){
+	ItemPedido(int id, Produtos produto, double quantidade){
 		this.id =id;
-		this.Tipo = Tipo;
+		this.produto = produto;
 		this.quantidade = quantidade;
 	
 	}
+
 	
 	public int getId() {
 		return id;
@@ -41,13 +24,12 @@ public class ItemPedido {
 		this.id = id;
 	}
 
-
-	public Produtos getTipo() {
-		return Tipo;
+	public Produtos getProduto() {
+		return produto;
 	}
 
-	public void setTipo(Produtos tipo) {
-		Tipo = tipo;
+	public void setProduto(Produtos produto) {
+		this.produto = produto;
 	}
 
 	public double getQuantidade() {
@@ -58,5 +40,4 @@ public class ItemPedido {
 	
 			this.quantidade = quantidade;
 	}
-
 }
