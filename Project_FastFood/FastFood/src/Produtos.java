@@ -9,10 +9,11 @@ public class Produtos {
 	
 	Produtos(){}
 	
-	Produtos(int id, double preco, double estoque){
+	Produtos(int id, String nome, double preco, double estoque){
 		this.id = id;
 		this.preco = preco;
 		this.estoque = estoque;
+		this.nome = nome;
 		
 	}
 
